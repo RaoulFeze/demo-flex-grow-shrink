@@ -1,6 +1,6 @@
 .flex-container {
     display: flex;
-    flex-flow: row wrap;
+    flex-flow: row wrap; /*shorthand of flex-direction and flex-wrap*/
 }
 
 section {
@@ -40,4 +40,28 @@ section:nth-last-child(2) {
 section:only-child {
     background-color: whitesmoke;
     color: darkslategray;
+}
+
+/* Flexbox lays out content based on the content width. In this case, the sections are as wide as the h2 heading. Due t their default width, these sections do not grow to fit the screen width when there is more room inside the flex container.
+
+Flexbox can allow fles itmes to grow beyond their content width to take up to all the room on the row.
+
+The default is flex-f=grow: 0; & flex-shrink: 1;
+*/
+
+section {
+    /* flex-grow: 0; means no grow allow
+    flex-grow: 1; allows to grow */
+    flex-grow: 1; 
+    flex-shrink: 1;
+    /* flex-basis is the prefered width but allowing the grow and shrink to change that width */
+    flex-basis: 200px;
+/* 
+    Shorthand for all three properties: grow shrink basis */
+    flex: 1 1 250px;
+}
+
+section:nth-child(2) {
+    /* flex-grow gives proportionanly 4 portions of the left over space to the second child. */
+    /* flex-grow: 4; */
 }
